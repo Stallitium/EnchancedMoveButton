@@ -5,10 +5,12 @@ import javax.swing.*;
 public class Unit {
     private int x;
     private int y;
+    int base;
     private JButton unitButton;
     public Unit(int base,int x, int y, JButton unitButton) {
         this.x = x;
         this.y = y;
+        this.base = base;
         this.unitButton = unitButton;
         unitButton.setLocation(x*base,y*base);
     }
@@ -29,6 +31,14 @@ public class Unit {
         this.y = y;
     }
 
+    public int getBase() {
+        return base;
+    }
+
+    public void setBase(int base) {
+        this.base = base;
+    }
+
     public JButton getUnitButton() {
         return unitButton;
     }
@@ -37,7 +47,7 @@ public class Unit {
         this.unitButton = unitButton;
     }
 
-    public void move(int base,int cell,int x,int y) {
+    public void move(int cell,int x,int y) {
         int afX = unitButton.getX()+(x*base);
         int afY = unitButton.getY()+(y*base);
         if (afX > base*cell || afY > base*cell) {
@@ -46,7 +56,7 @@ public class Unit {
         unitButton.setLocation(afX,afY);
     }
 
-    public void moveX(int base,int cell,int x) {
+    public void moveX(int cell,int x) {
         int afX = unitButton.getX()+(x*base);
         if (afX >= base*cell || afX < 0) {
             return;
@@ -54,7 +64,7 @@ public class Unit {
         unitButton.setLocation(afX,unitButton.getY());
     }
 
-    public void moveY(int base,int cell,int y) {
+    public void moveY(int cell,int y) {
         int afY = unitButton.getY()+(y*base);
         if (afY >= base*cell || afY < 0) {
             return;
@@ -62,7 +72,7 @@ public class Unit {
         unitButton.setLocation(unitButton.getX(),afY);
     }
 
-    public void teleport(int base,int x,int y) {
+    public void teleport(int x,int y) {
         unitButton.setLocation(x*base,y*base);
     }
 }

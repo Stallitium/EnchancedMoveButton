@@ -43,13 +43,13 @@ public class App extends JFrame implements KeyListener {
     public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();
         if (c == 'w') {
-            unit.moveY(base,cell,-1);
+            unit.moveY(cell,-1);
         } else if (c == 's') {
-            unit.moveY(base,cell,1);
+            unit.moveY(cell,1);
         } else if (c == 'a') {
-            unit.moveX(base,cell,-1);
+            unit.moveX(cell,-1);
         } else if (c == 'd') {
-            unit.moveX(base,cell,1);
+            unit.moveX(cell,1);
         }
     }
 
